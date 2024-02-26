@@ -17,14 +17,15 @@
 }
 .btn {
   outline: none;
-  border: none;
   padding: 1.2rem;
   cursor: pointer;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.4rem;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+  border: 2px solid transparent;
   background-color: var(--primary);
-  color: var(--white);
+  color: white;
 }
 .btn-primary {
   background-color: var(--primary);
