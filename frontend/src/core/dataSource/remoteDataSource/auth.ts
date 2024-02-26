@@ -13,6 +13,9 @@ export type registerData = {
 export type resetData = {
   newPassword: string;
 };
+export type forgetData = {
+  email: string;
+};
 
 type User = {
   fullName: string;
@@ -29,6 +32,9 @@ type registerResponse = {
   message: string;
 };
 type resetResponse = {
+  message: string;
+};
+type forgetResponse = {
   message: string;
 };
 
@@ -53,6 +59,14 @@ export const authDataSource = {
     const response = await sendRequest({
       body: data,
       route: "auth/reset-password",
+      method: "POST",
+    });
+    return response;
+  },
+  forgetPassword: async (data: forgetData): Promise<forgetResponse> => {
+    const response = await sendRequest({
+      body: data,
+      route: "auth/forget-password",
       method: "POST",
     });
     return response;
