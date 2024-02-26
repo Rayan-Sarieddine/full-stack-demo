@@ -25,7 +25,7 @@ function Nav() {
   };
 
   const signUp = () => {
-    navigate("/sign-up");
+    navigate("/signup");
   };
 
   return (
