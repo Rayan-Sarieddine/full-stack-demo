@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ReactComponent as EmailIcon } from "../../../assets/icons/envelope.svg";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
 
 import "./style.css";
@@ -49,6 +49,11 @@ const ForgetPassword = () => {
     <section className="forget">
       {!success ? (
         <div className="forget-form-box">
+          <Link to="/">
+            <div className="page-logo">
+              <img src="./favicon.png" alt="logo" />
+            </div>
+          </Link>
           <div className="forget-form-value">
             <form onSubmit={handleSubmit}>
               <h2>Forget Password</h2>

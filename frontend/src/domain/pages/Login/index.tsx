@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as EmailIcon } from "../../../assets/icons/envelope.svg";
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
 import { useDispatch } from "react-redux";
 import googleIcon from "../../../assets/logos/google-icon.png";
@@ -78,6 +78,11 @@ const Login = () => {
   return (
     <section className="login">
       <div className="login-form-box">
+        <Link to="/">
+          <div className="page-logo">
+            <img src="./favicon.png" alt="logo" />
+          </div>
+        </Link>
         <div className="login-form-value">
           <form onSubmit={handleSubmit}>
             <h2>Login</h2>

@@ -16,6 +16,7 @@
   border-radius: 20px;
   backdrop-filter: blur(15px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./style.css";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
@@ -68,6 +68,11 @@ const ResetPassword = () => {
     <section className="reset">
       {!success ? (
         <div className="reset-form-box">
+          <Link to="/">
+            <div className="page-logo">
+              <img src="./favicon.png" alt="logo" />
+            </div>
+          </Link>
           <div className="reset-form-value">
             <form onSubmit={handleSubmit}>
               <h2>Reset Password</h2>

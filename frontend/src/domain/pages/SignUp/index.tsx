@@ -3,7 +3,7 @@ import { ReactComponent as EmailIcon } from "../../../assets/icons/envelope.svg"
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
 import { ReactComponent as NameIcon } from "../../../assets/icons/name.svg";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
 import googleIcon from "../../../assets/logos/google-icon.png";
 
@@ -100,6 +100,11 @@ const SignUp = () => {
     <section className="signup">
       {!success ? (
         <div className="signup-form-box">
+          <Link to="/">
+            <div className="page-logo">
+              <img src="./favicon.png" alt="logo" />
+            </div>
+          </Link>
           <div className="signup-form-value">
             <form onSubmit={handleSubmit}>
               <h2>Sign-up</h2>
