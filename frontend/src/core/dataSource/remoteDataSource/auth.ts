@@ -15,6 +15,7 @@ type User = {
   fullName: string;
   email: string;
   userType: string;
+  id: number;
 };
 type loginResponse = {
   message: string;
@@ -25,7 +26,7 @@ type registerResponse = {
   message: string;
 };
 
-export const productDataSource = {
+export const authDataSource = {
   login: async (data: LoginData): Promise<loginResponse> => {
     const response = await sendRequest({
       body: data,
