@@ -10,6 +10,9 @@ export type registerData = {
   userType?: string;
   password: string;
 };
+export type resetData = {
+  newPassword: string;
+};
 
 type User = {
   fullName: string;
@@ -23,6 +26,9 @@ type loginResponse = {
   token: string;
 };
 type registerResponse = {
+  message: string;
+};
+type resetResponse = {
   message: string;
 };
 
@@ -39,6 +45,14 @@ export const authDataSource = {
     const response = await sendRequest({
       body: data,
       route: "auth/register",
+      method: "POST",
+    });
+    return response;
+  },
+  resetPassword: async (data: resetData): Promise<resetResponse> => {
+    const response = await sendRequest({
+      body: data,
+      route: "auth/reset-password",
       method: "POST",
     });
     return response;
