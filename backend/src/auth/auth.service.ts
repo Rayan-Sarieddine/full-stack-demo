@@ -168,7 +168,7 @@ export class AuthService {
     Logger.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   }
 
-  async sendPasswordResetEmail(email: string): Promise<void> {
+  async sendPasswordResetEmail(email: string): Promise<{ message: string }> {
     const user = await this.prisma.user.findUnique({
       where: { email },
     });
@@ -189,6 +189,7 @@ export class AuthService {
     });
 
     await this.sendResetEmail(email, resetToken);
+    return { message: 'success' };
   }
 
   private async sendResetEmail(email: string, token: string): Promise<void> {
