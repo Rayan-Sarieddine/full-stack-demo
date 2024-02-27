@@ -33,6 +33,7 @@ export class AuthController {
       res.status(400).send('Email verification failed');
     }
   }
+  @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(200)
   async login(@Req() req) {
