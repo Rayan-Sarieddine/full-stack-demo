@@ -7,7 +7,7 @@ type requestParams = {
   body?: unknown;
 };
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://localhost:3002";
 export const sendRequest = async ({
   route,
   method = "GET",
