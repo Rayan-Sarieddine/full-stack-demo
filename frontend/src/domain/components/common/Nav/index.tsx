@@ -3,7 +3,9 @@ import "./style.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLogin } from "../../../../core/hooks/login.hook";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cleanData } from "../../../../core/dataSource/localDataSource/User";
+import { local } from "../../../../core/helpers/localStorage";
 
 interface AppState {
   User: {
@@ -15,7 +17,7 @@ interface AppState {
 
 function Nav() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const userData = useSelector((state: AppState) => state.User);
 
   const [isLoggedIn, token] = useLogin();
@@ -26,6 +28,16 @@ function Nav() {
 
   const signUp = () => {
     navigate("/signup");
+  };
+
+  const logOut = (): void => {
+    //empty log in tokens
+    local("token", "");
+
+    //clear the user slice in redux
+    dispatch(cleanData());
+
+    navigate("/login");
   };
 
   return (
@@ -46,7 +58,12 @@ function Nav() {
           </button>
         </div>
       ) : (
-        <p className="greeting">Hello {userData.fullName}!</p>
+        <div className="logged-in-section">
+          <p className="greeting">Hello {userData.fullName}!</p>,
+          <button className="btn" onClick={logOut}>
+            Log Out
+          </button>
+        </div>
       )}
     </nav>
   );

@@ -53,3 +53,9 @@
   margin-right: 2rem;
   font-weight: 600;
 }
+
+.logged-in-section {
+  display: flex;
+  gap: 1rem;
+  margin-right: 2rem;
+}
