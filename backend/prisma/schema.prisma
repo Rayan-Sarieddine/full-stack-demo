@@ -29,4 +29,7 @@ model User {
   @@map("users")
 }
 
-export type UserType = 'USER' | 'ADMIN';
+enum UserType {
+  USER
+  ADMIN
+}
