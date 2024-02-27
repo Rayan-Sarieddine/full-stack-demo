@@ -66,7 +66,7 @@ export const authDataSource = {
   forgetPassword: async (data: forgetData): Promise<forgetResponse> => {
     const response = await sendRequest({
       body: data,
-      route: "auth/forget-password",
+      route: "auth/forgot-password",
       method: "POST",
     });
     return response;
