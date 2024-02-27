@@ -68,8 +68,6 @@ export class AuthService {
           email: true,
           fullName: true,
           userType: true,
-          createdAt: true,
-          updatedAt: true,
         },
       });
       this.sendVerificationEmail(user.email, emailVerificationToken).catch(

@@ -13,6 +13,7 @@ export type registerData = {
 export type resetData = {
   newPassword: string;
 };
+
 export type forgetData = {
   email: string;
 };
