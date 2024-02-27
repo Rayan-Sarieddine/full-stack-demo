@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import "./style.css";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
@@ -19,6 +19,15 @@ const ResetPassword = () => {
   const [success, setSuccess] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const token = queryParams.get("token");
+    if (!token) {
+      navigate("/login"); // Redirect to login if token is missing
+    }
+  }, [location, navigate]);
 
   const validatePassword = (value: string) => {
     const passwordRegExpression =
@@ -46,14 +55,18 @@ const ResetPassword = () => {
     if (!password || !confirmPassword) {
       return;
     }
-
-    let data: { newPassword: string } = { newPassword: password };
+    const queryParams = new URLSearchParams(location.search);
+    const token = queryParams.get("token");
+    let data: { newPassword: string; token: string | null } = {
+      newPassword: password,
+      token,
+    };
     try {
       await authDataSource.resetPassword(data);
       setSuccess(true);
       setTimeout(() => {
         navigate("/login");
-      }, 2000);
+      }, 3000);
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);
@@ -155,7 +168,7 @@ const ResetPassword = () => {
           </div>
         </div>
       ) : (
-        <CheckMark message={"Successful"} />
+        <CheckMark message={"Password was reset"} />
       )}
     </section>
   );

@@ -12,6 +12,7 @@ export type registerData = {
 };
 export type resetData = {
   newPassword: string;
+  token: string | null;
 };
 
 export type forgetData = {
