@@ -40,8 +40,8 @@ const Login = () => {
       setTimeout(() => setError(""), 4000);
       return;
     }
-    const passwordRegExpression: RegExp =
-      /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+    const passwordRegExpression =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegExpression.test(password)) {
       setError("Please Enter your Valid Password");
       setTimeout(() => setError(""), 4000);
