@@ -36,6 +36,10 @@ const ForgetPassword = () => {
     let data: { email: string } = { email };
     try {
       await authDataSource.forgetPassword(data);
+      setSuccess(true);
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);
