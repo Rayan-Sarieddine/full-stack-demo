@@ -244,7 +244,10 @@ export class AuthService {
     Logger.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   }
 
-  async resetPassword(token: string, newPassword: string): Promise<void> {
+  async resetPassword(
+    token: string,
+    newPassword: string,
+  ): Promise<{ message: string }> {
     const user = await this.prisma.user.findFirst({
       where: {
         passwordResetToken: token,
@@ -272,5 +275,6 @@ export class AuthService {
         passwordResetExpires: null,
       },
     });
+    return { message: 'success' };
   }
 }
