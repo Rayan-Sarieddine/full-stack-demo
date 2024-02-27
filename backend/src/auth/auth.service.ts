@@ -73,7 +73,7 @@ export class AuthService {
       this.sendVerificationEmail(user.email, emailVerificationToken).catch(
         console.error,
       );
-      return user;
+      return { message: 'success' };
     } catch (error) {
       throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
     }
@@ -107,7 +107,7 @@ export class AuthService {
   async login(user: any) {
     const payload = { email: user.email, sub: user.id };
     return {
-      access_token: this.jwtService.sign(payload),
+      token: this.jwtService.sign(payload),
       user: {
         id: user.id,
         email: user.email,

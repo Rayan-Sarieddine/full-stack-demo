@@ -25,7 +25,6 @@ type User = {
   id: number;
 };
 type loginResponse = {
-  message: string;
   user: User;
   token: string;
 };
