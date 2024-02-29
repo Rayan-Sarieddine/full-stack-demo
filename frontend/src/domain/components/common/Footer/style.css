@@ -10,17 +10,15 @@
     rgba(13, 70, 105, 0.652)
   );
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .footer-main {
   display: flex;
   align-items: center;
-  height: 100%;
   width: 100%;
   justify-content: center;
-  gap: 20rem;
-  padding: 3rem 3rem;
+  padding: 3rem;
 }
 
 /*section 1*/
@@ -28,11 +26,11 @@
   text-align: center;
 }
 .footer-main_section1 img {
-  height: 10rem;
+  height: 6rem;
 }
 .footer-main_section1 h3,
 .footer-main_section1 p {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-top: 1rem;
   font-weight: 700;
   text-transform: uppercase;

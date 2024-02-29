@@ -6,7 +6,7 @@ import Stacks from "../../components/pageComponents/Stacks";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <Nav />
       <Stacks />
       <Footer />
