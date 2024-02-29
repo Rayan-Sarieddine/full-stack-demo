@@ -61,4 +61,8 @@ export class AuthController {
     await this.authService.resetPassword(token, newPassword);
     return { message: 'Your password has been successfully reset.' };
   }
+  @Post('google-login')
+  async googleAuth(@Body('token') token: string) {
+    return this.authService.googleLogin(token);
+  }
 }

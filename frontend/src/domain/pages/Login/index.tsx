@@ -12,21 +12,32 @@ import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import { loggedIn } from "../../../core/dataSource/localDataSource/User";
 import { Dispatch, UnknownAction } from "redux";
 import { AxiosError } from "axios";
-
+import { gapi } from "gapi-script";
+const GOOGLE_CLIENT_ID =
+  "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  const navigate: NavigateFunction = useNavigate();
+  const dispatch: Dispatch<UnknownAction> = useDispatch();
+
   useEffect(() => {
-    const token: string | null | void = local("token");
+    function initGoogleSignIn() {
+      gapi.load("auth2", () => {
+        gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
+      });
+    }
+
+    initGoogleSignIn();
+
+    const token = localStorage.getItem("token");
     if (token) {
       navigate("/");
     }
-  }, []);
-  const navigate: NavigateFunction = useNavigate();
-  const dispatch: Dispatch<UnknownAction> = useDispatch();
+  }, [navigate]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,7 +85,33 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const handleGoogleLogin = async () => {};
+  const handleGoogleLogin = async () => {
+    try {
+      const auth2 = gapi.auth2.getAuthInstance();
+      const googleUser = await auth2.signIn({
+        prompt: "select_account",
+      });
+      const id_token = googleUser.getAuthResponse().id_token;
+
+      const response = await authDataSource.googleAuth({ token: id_token });
+
+      local("token", response.token);
+
+      dispatch(
+        loggedIn({
+          email: response.user.email,
+          id: response.user.id,
+          fullName: response.user.fullName,
+          userType: response.user.userType,
+          token: response.token,
+        })
+      );
+
+      navigate("/");
+    } catch (error) {
+      console.error("Error during Google Sign-In:", error);
+    }
+  };
   return (
     <section className="login">
       <div className="login-form-box">

@@ -18,6 +18,9 @@ export type resetData = {
 export type forgetData = {
   email: string;
 };
+export type googleData = {
+  token: string;
+};
 
 type User = {
   fullName: string;
@@ -68,6 +71,14 @@ export const authDataSource = {
     const response = await sendRequest({
       body: data,
       route: "auth/forgot-password",
+      method: "POST",
+    });
+    return response;
+  },
+  googleAuth: async (data: googleData) => {
+    const response = await sendRequest({
+      body: data,
+      route: "auth/google-login",
       method: "POST",
     });
     return response;

@@ -5,10 +5,13 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import * as nodemailer from 'nodemailer';
 import { v4 as uuidv4 } from 'uuid';
+import { OAuth2Client } from 'google-auth-library';
 
 type UserType = 'USER' | 'ADMIN';
 @Injectable()
 export class AuthService {
+  private googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
   constructor(
     private prisma: PrismaService,
     private jwtService: JwtService,
@@ -277,5 +280,42 @@ export class AuthService {
       },
     });
     return { message: 'success' };
+  }
+  async googleLogin(token: string): Promise<any> {
+    const ticket = await this.googleClient.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+
+    let user = await this.prisma.user.findUnique({
+      where: { email: payload.email },
+    });
+
+    if (!user) {
+      user = await this.prisma.user.create({
+        data: {
+          email: payload.email,
+          fullName: payload.name,
+          password: '',
+        },
+      });
+    }
+
+    const userToken = this.jwtService.sign({
+      email: user.email,
+      sub: user.id,
+    });
+
+    return {
+      token: userToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        fullName: user.fullName,
+        userType: user.userType,
+      },
+    };
   }
 }

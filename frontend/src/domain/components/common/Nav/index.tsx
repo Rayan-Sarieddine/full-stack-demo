@@ -19,7 +19,7 @@ function Nav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userData = useSelector((state: AppState) => state.User);
-
+  console.log(userData);
   const [isLoggedIn, token] = useLogin();
 
   const logIn = () => {
