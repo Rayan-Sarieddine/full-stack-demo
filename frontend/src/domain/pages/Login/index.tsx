@@ -19,7 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(true);
 
   const navigate: NavigateFunction = useNavigate();
   const dispatch: Dispatch<UnknownAction> = useDispatch();

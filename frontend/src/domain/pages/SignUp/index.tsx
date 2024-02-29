@@ -55,9 +55,9 @@ const SignUp = () => {
     const passwordRegExpression =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegExpression.test(value) && value) {
-      setPasswordError(`- 8-20 characters long \n
-- Include at least one uppercase letter \n
-- Include at least one number and one special character`);
+      setPasswordError(`- 8-20 characters long. \n
+- Include at least one uppercase letter. \n
+- Include at least one number and one special character.`);
     } else {
       setPasswordError("");
     }
