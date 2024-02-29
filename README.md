@@ -7,7 +7,27 @@
 
 > This Full Stack app was built using Nest.js, PostgreSQL, Prisma, React and Typescript.
 
-<br><br>
+### Features:
+
+- User Registration: Intuitive registration form for easy sign-up.
+- Google Integration: Simplified sign-in and registration process via Google.
+- Authentication: Secure user authentication leveraging JSON Web Tokens (JWT).
+- Email Verification: Customized email verification to enhance user trust and security.
+- Forgot Password: A robust service that sends an email with redirection links following a security verification.
+- Password Reset: Directs users to a dedicated page for secure password resetting.
+- Rate Limiting: Implements a rate limit of 10 requests per minute for each user to ensure fair usage (prevent brute force attacks).
+- Comprehensive Error Handling and Data Validation: Across both frontend and backend, ensuring reliability and user-friendly error feedback.
+- Design: A responsive and contemporary design, prioritizing a seamless and intuitive user experience (UX).
+- State Management: Utilizes Redux for efficient local data handling and state management.
+- Routing: Leverages React Router for dynamic and responsive page navigation.
+- API Integration: Well-structured architecture for seamless API requests, facilitating remote data access.
+- Folder Structure: Methodically organized for easy navigation, supporting efficient development and maintenance of both frontend and backend.
+- React Ecosystem: Incorporates both custom and pre-built React hooks, alongside local storage, for optimized performance.
+- Testing: Comprehensive API testing implemented with Jest for assured reliability.
+- TypeScript: Adoption of TypeScript for robust, type-safe coding, minimizing errors and enhancing code quality.
+- Database Design: Advanced database architecture crafted with Prisma, ensuring scalability and efficient data management.
+
+  <br><br>
 
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
