@@ -32,31 +32,41 @@
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-### Pages
+### Processes
 
-| Login
+| Google Sign Up Process
 | --------------------------------------------------------
-| ![Login ](./readme/pages/)
+| ![Google Sign Up Process](./readme/gifs/google-signin.gif)
 
-| Register  
+| Sign-Up Process  
 | -----------------------------------------------------------
-| ![Register ](./readme/pages/)
+| ![Sign-Up Process](./readme/gifs/sign-up.gif)
 
-| Verify Email
+| Email Verification & Login Process
 | ------------------------------------------------
-| ![Verify Email](./readme/pages/)
+| ![Email Verification & Login Process](./readme/gifs/login-email-verification.gif)
 
-| Forget Password
+| Reset Password Process
 | ------------------------------------------------------------
-| ![Forget Password](./readme/pages/)
+| ![Reset Password Process](./readme/gifs/reset-password.gif)
 
-| Reset Password
+| Rate Limiting Example (User allowed 10 requests per 1 minute)
 | -------------------------------------------------------
-| ![Reset Password](./readme/pages/)
+| ![Rate Limiting Example](./readme/gifs/rate-limiting.gif)
 
-| Home
-| ----------------------------------------------------------------
-| ![Home](./readme/pages/)
+### Pages:
+
+| Login Page                                   |
+| -------------------------------------------- |
+| ![Login Page](./readme/pages/login_page.png) |
+
+| Sign-Up Page                                     | Home Page                                  |
+| ------------------------------------------------ | ------------------------------------------ |
+| ![Sign-Up Page](./readme/pages/sign-up_page.png) | ![Home Page](./readme/pages/home_page.png) |
+
+| Forget-Password Page                                             | Reset-Password Page                                            |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![Forget-Password Page](./readme/pages/forget-password_page.png) | ![Reset-Password Page](./readme/pages/reset-password_page.png) |
 
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
