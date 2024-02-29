@@ -166,9 +166,9 @@ export class AuthService {
 
     const info = await transporter.sendMail(mailOptions);
 
-    Logger.log('Message sent: %s', info.messageId);
+    Logger.log('Message sent: ', info.messageId);
 
-    Logger.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    Logger.log('Preview URL: ', nodemailer.getTestMessageUrl(info));
   }
 
   async sendPasswordResetEmail(email: string): Promise<{ message: string }> {
@@ -243,9 +243,9 @@ export class AuthService {
 
     const info = await transporter.sendMail(mailOptions);
 
-    Logger.log('Password reset email sent: %s', info.messageId);
+    Logger.log('Password reset email sent: ', info.messageId);
 
-    Logger.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    Logger.log('Preview URL: ', nodemailer.getTestMessageUrl(info));
   }
 
   async resetPassword(
@@ -260,7 +260,6 @@ export class AuthService {
         },
       },
     });
-    Logger.log(user);
     if (!user) {
       throw new HttpException(
         'Invalid or expired reset token',
