@@ -183,7 +183,7 @@ const Login = () => {
                     navigate("/signup");
                   }}
                 >
-                  Register
+                  Sign-up
                 </button>
               </p>
             </div>

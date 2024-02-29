@@ -5,7 +5,6 @@ import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.
 import { ReactComponent as NameIcon } from "../../../assets/icons/name.svg";
 import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
-import googleIcon from "../../../assets/logos/google-icon.png";
 
 import "./style.css";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
@@ -96,7 +95,6 @@ const SignUp = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const handleGoogleLogin = async () => {};
   return (
     <section className="signup">
       {!success ? (
@@ -202,13 +200,6 @@ const SignUp = () => {
                 Sign Up
               </button>
               {error && <p className="error">{error}</p>}
-              <div className="inputBox google-sign-in">
-                <p>-------- or sign in with --------</p>
-                <div className="google-button" onClick={handleGoogleLogin}>
-                  <img src={googleIcon} alt="google_logo" />
-                  <p>Google</p>
-                </div>
-              </div>
             </form>
             <div className="signup-register">
               <p>
