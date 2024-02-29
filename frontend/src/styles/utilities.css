@@ -8,6 +8,7 @@
   font-size: 1.5rem;
   color: var(--red);
   transition: 0.5s;
+  margin-bottom: 0.5rem;
 }
 .message {
   padding-left: 10px;
