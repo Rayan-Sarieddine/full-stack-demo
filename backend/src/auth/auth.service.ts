@@ -294,11 +294,13 @@ export class AuthService {
     });
 
     if (!user) {
+      const generatedPassword = uuidv4();
       user = await this.prisma.user.create({
         data: {
           email: payload.email,
           fullName: payload.name,
-          password: '',
+          password: generatedPassword,
+          emailVerified: true,
         },
       });
     }
