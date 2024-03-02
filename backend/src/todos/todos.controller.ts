@@ -28,8 +28,9 @@ export class TodosController {
   }
 
   @Get()
-  findAll() {
-    return this.todosService.findAll();
+  @UseGuards(AuthGuard('jwt'))
+  findAll(@GetUser('userId') userId: number) {
+    return this.todosService.findAll(userId);
   }
 
   @Get(':id')

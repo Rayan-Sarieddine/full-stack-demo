@@ -17,8 +17,12 @@ export class TodosService {
     });
   }
 
-  findAll() {
-    return `This action returns all todos`;
+  async findAll(userId: number) {
+    return await this.prisma.todo.findMany({
+      where: {
+        userId,
+      },
+    });
   }
 
   findOne(id: number) {
