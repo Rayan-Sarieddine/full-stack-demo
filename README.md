@@ -88,7 +88,7 @@
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up the full stack app locally, follow these steps:
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ Before you begin, ensure you have met the following requirements:
 
 Installation & Setup
 
-Follow these steps to install and set up Paws on your local environment. The setup is divided into sections for the web platform, mobile app, and Arduino.
+Follow these steps to install and set up this full stack app on your local environment.  
 
 1- Clone the repo:
 
