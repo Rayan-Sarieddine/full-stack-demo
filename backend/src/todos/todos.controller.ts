@@ -34,8 +34,9 @@ export class TodosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todosService.findOne(+id);
+  @UseGuards(AuthGuard('jwt'))
+  findOne(@Param('id') id: string, @GetUser('userId') userId: number) {
+    return this.todosService.findOne(+id, userId);
   }
 
   @Patch(':id')

@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { PrismaService } from 'prisma/prisma.service';
@@ -25,8 +29,22 @@ export class TodosService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} todo`;
+  async findOne(id: number, userId: number) {
+    const todo = await this.prisma.todo.findUnique({
+      where: { id },
+    });
+
+    if (!todo) {
+      throw new NotFoundException(`Todo with ID "${id}" not found`);
+    }
+
+    if (todo.userId !== userId) {
+      throw new UnauthorizedException(
+        'You do not have permission to access this todo',
+      );
+    }
+
+    return todo;
   }
 
   update(id: number, updateTodoDto: UpdateTodoDto) {
