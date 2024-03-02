@@ -50,7 +50,8 @@ export class TodosController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todosService.remove(+id);
+  @UseGuards(AuthGuard('jwt'))
+  remove(@Param('id') id: string, @GetUser('userId') userId: number) {
+    return this.todosService.remove(+id, userId);
   }
 }

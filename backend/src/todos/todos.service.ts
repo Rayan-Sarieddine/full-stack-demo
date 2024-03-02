@@ -68,7 +68,23 @@ export class TodosService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} todo`;
+  async remove(id: number, userId: number) {
+    const existingTodo = await this.prisma.todo.findUnique({
+      where: { id },
+    });
+
+    if (!existingTodo) {
+      throw new NotFoundException(`Todo with ID "${id}" not found`);
+    }
+
+    if (existingTodo.userId !== userId) {
+      throw new UnauthorizedException(
+        'You do not have permission to delete this todo',
+      );
+    }
+
+    return await this.prisma.todo.delete({
+      where: { id },
+    });
   }
 }
