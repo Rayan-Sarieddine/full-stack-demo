@@ -6,7 +6,7 @@ import {
   IsString,
 } from 'class-validator';
 
-enum PriorityLevel {
+export enum PriorityLevel {
   TOP = 'TOP',
   MEDIUM = 'MEDIUM',
   AVERAGE = 'AVERAGE',
