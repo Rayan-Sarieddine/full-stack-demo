@@ -47,8 +47,25 @@ export class TodosService {
     return todo;
   }
 
-  update(id: number, updateTodoDto: UpdateTodoDto) {
-    return `This action updates a #${id} todo`;
+  async update(id: number, userId: number, updateTodoDto: UpdateTodoDto) {
+    const existingTodo = await this.prisma.todo.findUnique({
+      where: { id },
+    });
+
+    if (!existingTodo) {
+      throw new NotFoundException(`Todo with ID "${id}" not found`);
+    }
+
+    if (existingTodo.userId !== userId) {
+      throw new UnauthorizedException(
+        'You do not have permission to modify this todo',
+      );
+    }
+
+    return await this.prisma.todo.update({
+      where: { id },
+      data: updateTodoDto,
+    });
   }
 
   remove(id: number) {
