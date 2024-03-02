@@ -29,6 +29,10 @@
 
   <br><br>
 
+### API Documentation:
+
+- You can find the comprehensive API documentation for the TODO App through the following link: [Documentation](https://app.swaggerhub.com/apis/RayanSarieddine/maxiphy/1.0.0).
+
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
@@ -105,7 +109,7 @@ Before you begin, ensure you have met the following requirements:
 
 Installation & Setup
 
-Follow these steps to install and set up this full stack app on your local environment.  
+Follow these steps to install and set up this full stack app on your local environment.
 
 1- Clone the repo:
 
