@@ -25,11 +25,33 @@ model User {
   passwordResetExpires    DateTime?
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
+  todos                   Todo[] 
 
   @@map("users")
+}
+
+model Todo {
+  id              Int         @id @default(autoincrement())
+  userId          Int
+  title           String
+  description     String?
+  priorityLevel   PriorityLevel
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  completed       Boolean     @default(false)
+  pinned          Boolean     @default(false)
+  user            User        @relation(fields: [userId], references: [id])
+
+  @@map("todos")
 }
 
 enum UserType {
   USER
   ADMIN
+}
+
+enum PriorityLevel {
+  TOP
+  MEDIUM
+  AVERAGE
 }
