@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
+import { AuthModule } from './resources/auth/auth.module';
+import { UserModule } from './resources/user/user.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-import { TodosModule } from './todos/todos.module';
+import { TodosModule } from './resources/todos/todos.module';
 
 @Module({
   imports: [

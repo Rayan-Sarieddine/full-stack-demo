@@ -1,6 +1,5 @@
-// src/auth/auth.service.ts
 import { Injectable, HttpStatus, HttpException, Logger } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { PrismaService } from '../../../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import * as nodemailer from 'nodemailer';
