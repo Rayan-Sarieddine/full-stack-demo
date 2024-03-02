@@ -32,6 +32,9 @@
 ### API Documentation:
 
 - You can find the comprehensive API documentation for the TODO App through the following link: [Documentation](https://app.swaggerhub.com/apis/RayanSarieddine/maxiphy/1.0.0).
+  <img src="./readme/images/api_documentation.png"/>
+
+<br><br>
 
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
