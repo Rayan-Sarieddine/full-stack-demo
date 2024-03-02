@@ -2,7 +2,6 @@ import {
   IsBoolean,
   IsEnum,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
   IsString,
 } from 'class-validator';
@@ -14,10 +13,6 @@ export enum PriorityLevel {
 }
 
 export class CreateTodoDto {
-  @IsNotEmpty()
-  @IsNumber()
-  userId: number;
-
   @IsNotEmpty()
   @IsString()
   title: string;

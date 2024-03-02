@@ -5,11 +5,15 @@ import { PrismaService } from 'prisma/prisma.service';
 
 @Injectable()
 export class TodosService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
-  async create(createTodoDto: CreateTodoDto) {
+  async create(createTodoDto: CreateTodoDto, userId: number) {
+    const newTodo = {
+      ...createTodoDto,
+      userId,
+    };
     return await this.prisma.todo.create({
-      data: createTodoDto,
+      data: newTodo,
     });
   }
 
