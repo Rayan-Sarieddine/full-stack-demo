@@ -16,7 +16,7 @@ export type UpdateTodoData = {
   completed?: boolean;
   pinned?: boolean;
 };
-export type PriorityLevel = "TOP" | "MEDIUM" | "AVERAGE";
+export type PriorityLevel = "TOP" | "MEDIUM" | "LOW";
 type Todo = {
   id: number;
   userId: number;

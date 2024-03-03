@@ -10,7 +10,7 @@ import {
 export enum PriorityLevel {
   TOP = 'TOP',
   MEDIUM = 'MEDIUM',
-  AVERAGE = 'AVERAGE',
+  LOW = 'LOW',
 }
 
 export class CreateTodoDto {

@@ -54,5 +54,5 @@ enum UserType {
 enum PriorityLevel {
   TOP
   MEDIUM
-  AVERAGE
+  LOW
 }
