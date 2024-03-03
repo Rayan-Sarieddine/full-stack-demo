@@ -13,7 +13,7 @@ export const sendRequest = async ({
   method = "GET",
   body,
 }: requestParams) => {
-  const token: string | null | void = local("type");
+  const token: string | null | void = local("token");
   const headers = {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
