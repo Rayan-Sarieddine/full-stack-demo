@@ -4,8 +4,7 @@ import { ReactComponent as EditIcon } from "../../../../assets/icons/pencil.svg"
 import { ReactComponent as DeleteIcon } from "../../../../assets/icons/trash.svg";
 import { ReactComponent as PinIcon } from "../../../../assets/icons/push-pin.svg";
 import { ReactComponent as CompleteIcon } from "../../../../assets/icons/check.svg";
-
-export type PriorityLevel = "TOP" | "MEDIUM" | "AVERAGE";
+import { PriorityLevel } from "../../../../core/dataSource/remoteDataSource/todo";
 
 export type Todo = {
   title: string;
