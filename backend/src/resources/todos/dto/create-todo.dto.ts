@@ -1,5 +1,6 @@
 import {
   IsBoolean,
+  IsDate,
   IsEnum,
   IsNotEmpty,
   IsOptional,
@@ -16,6 +17,10 @@ export class CreateTodoDto {
   @IsNotEmpty()
   @IsString()
   title: string;
+
+  @IsNotEmpty()
+  @IsDate()
+  date: Date;
 
   @IsOptional()
   @IsString()

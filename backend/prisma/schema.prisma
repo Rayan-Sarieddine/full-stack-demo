@@ -36,6 +36,7 @@ model Todo {
   title           String
   description     String?
   priorityLevel   PriorityLevel
+  date            DateTime
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
   completed       Boolean     @default(false)

@@ -5,6 +5,7 @@ export class Todo {
   userId: number;
   title: string;
   description?: string;
+  date: Date;
   priorityLevel: PriorityLevel;
   createdAt: Date;
   updatedAt: Date;
