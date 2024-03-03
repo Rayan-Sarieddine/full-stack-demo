@@ -1,25 +1,20 @@
 import { sendRequest } from "../../helpers/request";
 
 export type CreateTodoData = {
-  email: string;
-  password: string;
+  title: string;
+  description?: string;
+  date: Date;
+  priorityLevel: PriorityLevel;
+  completed: boolean;
+  pinned: boolean;
 };
 export type UpdateTodoData = {
-  email: string;
-  fullName: string;
-  userType?: string;
-  password: string;
-};
-export type DeleteTodoData = {
-  newPassword: string;
-  token: string | null;
-};
-
-export type forgetData = {
-  email: string;
-};
-export type googleData = {
-  token: string;
+  title?: string;
+  description?: string;
+  date?: Date;
+  priorityLevel?: PriorityLevel;
+  completed?: boolean;
+  pinned?: boolean;
 };
 export type PriorityLevel = "TOP" | "MEDIUM" | "AVERAGE";
 type Todo = {
@@ -63,9 +58,8 @@ export const todoDataSource = {
     });
     return response;
   },
-  delete: async (data: DeleteTodoData): Promise<DeleteTodoResponse> => {
+  delete: async (): Promise<DeleteTodoResponse> => {
     const response = await sendRequest({
-      body: data,
       route: "todos/",
       method: "DELETE",
     });
