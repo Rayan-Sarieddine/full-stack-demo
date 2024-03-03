@@ -22,19 +22,24 @@ function Todo({
 }: Todo) {
   return (
     <div className="todo">
-      <div className="rows">
-        <div className="row1">
-          <input type="text" placeholder={title} />
-          <div className="row1-buttons">
-            <button>pin</button>
-            <button>complete</button>
+      <div className="todo-top">
+        <button>save</button>
+        <button>delete</button>
+      </div>
+      <div className="todo-main">
+        <div className="rows">
+          <div className="row1">
+            <input type="text" placeholder={title} />
+            <div className="row1-buttons">
+              <button>edit</button>
+            </div>
           </div>
-        </div>
-        <div className="row2">
-          <input type="text" placeholder={description} />
-          <div className="row2-buttons">
-            <button>edit</button>
-            <button>delete</button>
+          <div className="row2">
+            <input type="text" placeholder={description} />
+            <div className="row2-buttons">
+              <button>pin</button>
+              <button>complete</button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,32 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  width: 40%;
+}
+.todo-top {
+  align-self: end;
+}
+.todo-main {
+  padding: 2rem;
+  background-color: #e6dcdc;
+}
+.rows {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.row1,
+.row2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.row1 {
+  margin-bottom: 2rem;
+}
+.row2-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
