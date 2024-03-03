@@ -4,7 +4,10 @@ import { ReactComponent as EditIcon } from "../../../../assets/icons/pencil.svg"
 import { ReactComponent as DeleteIcon } from "../../../../assets/icons/trash.svg";
 import { ReactComponent as PinIcon } from "../../../../assets/icons/push-pin.svg";
 import { ReactComponent as CompleteIcon } from "../../../../assets/icons/check.svg";
-import { PriorityLevel } from "../../../../core/dataSource/remoteDataSource/todo";
+import {
+  PriorityLevel,
+  todoDataSource,
+} from "../../../../core/dataSource/remoteDataSource/todo";
 
 export type Todo = {
   title: string;
@@ -13,6 +16,7 @@ export type Todo = {
   priorityLevel: PriorityLevel;
   completed: boolean;
   pinned: boolean;
+  id: number;
 };
 
 function TodoComponent({
@@ -22,21 +26,53 @@ function TodoComponent({
   date,
   completed,
   pinned,
+  id,
 }: Todo) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [isPinned, setIsPinned] = useState(pinned);
-  const [isCompleted, setIsCompleted] = useState(completed);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [newTitle, setNewTitle] = useState<string>(title);
+  const [newDescription, setNewDescription] = useState<string>(
+    description || ""
+  );
+  const [newPriorityLevel, setNewPriorityLevel] =
+    useState<PriorityLevel>(priorityLevel);
+  const [isPinned, setIsPinned] = useState<boolean>(pinned);
+  const [isCompleted, setIsCompleted] = useState<boolean>(completed);
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setIsEditing(false);
+    if (
+      newTitle === title &&
+      newDescription === description &&
+      newPriorityLevel === priorityLevel &&
+      isPinned === pinned &&
+      isCompleted === completed
+    ) {
+      return;
+    }
+    const data = {
+      title: newTitle,
+      description: newDescription,
+      pinned: isPinned,
+      completed: isCompleted,
+      priorityLevel: newPriorityLevel,
+    };
+    try {
+      await todoDataSource.update(data, id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleDelete = () => {
-    setIsEditing(false);
+  const handleDelete = async () => {
+    try {
+      await todoDataSource.delete(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handlePin = () => {
@@ -46,7 +82,21 @@ function TodoComponent({
   const handleComplete = () => {
     setIsCompleted(!isCompleted);
   };
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTitle(event.target.value);
+  };
 
+  const handleDescriptionChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setNewDescription(event.target.value);
+  };
+
+  const handlePriorityChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setNewPriorityLevel(event.target.value as PriorityLevel);
+  };
   return (
     <div className="todo">
       <div className="todo-top">
@@ -80,14 +130,37 @@ function TodoComponent({
         <div className="rows">
           <div className="row1">
             {isEditing ? (
-              <input type="text" defaultValue={title} />
+              <>
+                <input
+                  type="text"
+                  value={newTitle}
+                  onChange={handleTitleChange}
+                />
+                <select
+                  id="priority-level"
+                  onChange={handlePriorityChange}
+                  value={newPriorityLevel}
+                >
+                  <option value="TOP">Top</option>
+                  <option value="MEDIUM" selected>
+                    Medium
+                  </option>
+                  <option value="LOW">Low</option>
+                </select>
+              </>
             ) : (
-              <div className="text-display-title">{title}</div>
+              <>
+                <div className="text-display-title">{title}</div>
+                <div className="text-display-priority">{priorityLevel}</div>
+              </>
             )}
           </div>
           <div className="row2">
             {isEditing ? (
-              <textarea defaultValue={description} />
+              <textarea
+                value={newDescription}
+                onChange={handleDescriptionChange}
+              />
             ) : (
               <div className="text-display-description">{description}</div>
             )}

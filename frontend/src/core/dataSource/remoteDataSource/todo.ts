@@ -50,17 +50,20 @@ export const todoDataSource = {
     });
     return response;
   },
-  update: async (data: UpdateTodoData): Promise<UpdateTodoResponse> => {
+  update: async (
+    data: UpdateTodoData,
+    id: number
+  ): Promise<UpdateTodoResponse> => {
     const response = await sendRequest({
       body: data,
-      route: "todos/",
+      route: `todos/${id}`,
       method: "PUT",
     });
     return response;
   },
-  delete: async (): Promise<DeleteTodoResponse> => {
+  delete: async (id: number): Promise<DeleteTodoResponse> => {
     const response = await sendRequest({
-      route: "todos/",
+      route: `todos/${id}`,
       method: "DELETE",
     });
     return response;

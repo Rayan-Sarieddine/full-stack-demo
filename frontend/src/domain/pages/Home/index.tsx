@@ -11,6 +11,7 @@ function Home() {
     <div className="home">
       <Nav />
       <Todo
+        id={5}
         title="hello"
         description="descr"
         pinned={false}

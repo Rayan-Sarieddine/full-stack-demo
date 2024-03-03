@@ -17,6 +17,7 @@
   padding: 2rem;
   background-color: #e0e5ec;
   border-radius: 10px;
+  border-top-right-radius: 0;
 }
 .rows {
   display: flex;
@@ -40,7 +41,6 @@
 .todo-top {
   display: flex;
   align-items: center;
-  margin-right: 0.8rem;
 }
 .todo-top button {
   padding: 0.5rem 1rem;
@@ -108,4 +108,18 @@
 .pinned,
 .completed {
   background-color: #91dfb5 !important;
+}
+.text-display-priority {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+#priority-level {
+  box-shadow: inset 2px 2px 4px #a7a9af, inset -2px -2px 4px #ffffff;
+
+  width: 11rem;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
