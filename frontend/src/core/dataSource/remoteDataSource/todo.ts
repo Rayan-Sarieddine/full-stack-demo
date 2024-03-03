@@ -39,7 +39,7 @@ type CreateTodoResponse = Todo;
 type UpdateTodoResponse = Todo;
 type DeleteTodoResponse = Todo;
 
-export const authDataSource = {
+export const todoDataSource = {
   getTodos: async (): Promise<GetTodoResponse> => {
     const response = await sendRequest({
       route: "todos/",
