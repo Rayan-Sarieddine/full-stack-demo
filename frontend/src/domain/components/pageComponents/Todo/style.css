@@ -3,13 +3,20 @@
   flex-direction: column;
   margin: 2rem auto;
   width: 40%;
+  position: relative;
 }
 .todo-top {
   align-self: end;
 }
+.todo-top_save {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .todo-main {
   padding: 2rem;
-  background-color: #e6dcdc;
+  background-color: #e0e5ec;
+  border-radius: 10px;
 }
 .rows {
   display: flex;
@@ -29,4 +36,76 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+.todo-top {
+  display: flex;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+.todo-top button {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 600;
+}
+.todo-top_save {
+  background-color: var(--green);
+}
+
+.todo-completed {
+  background-color: rgb(125, 215, 125);
+}
+
+.text-display-title,
+.text-display-description {
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+.text-display-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.text-display-description {
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.row1 input,
+.row2 textarea {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 4px #a7a9af, inset -2px -2px 4px #ffffff;
+  resize: none;
+}
+.row2 textarea {
+  height: 10rem;
+  width: 80%;
+  resize: none;
+}
+.row1 input:focus,
+.row2 textarea:focus {
+  border: 1px solid #e0e5ec;
+  box-shadow: inset 2px 2px 4px #a7a9af, inset -2px -2px 4px #ffffff;
+}
+.rows button {
+  background-color: #f1eeee;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 0.2rem;
+  box-shadow: 2px 2px 15px #e0e5ec, -2px -2px 15px #ffffff;
+
+  transition: 0.2s;
+}
+.rows button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.9px);
+}
+
+.pinned,
+.completed {
+  background-color: #91dfb5 !important;
 }
