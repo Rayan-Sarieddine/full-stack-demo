@@ -17,22 +17,22 @@ export type UpdateTodoData = {
   pinned?: boolean;
 };
 export type PriorityLevel = "TOP" | "MEDIUM" | "LOW";
-type Todo = {
+export type TodoItem = {
   id: number;
   userId: number;
   title: string;
   description?: string;
-  date: Date;
+  date: string;
   priorityLevel: PriorityLevel;
   createdAt: Date;
   updatedAt: Date;
   completed: boolean;
   pinned: boolean;
 };
-type GetTodoResponse = Todo[];
-type CreateTodoResponse = Todo;
-type UpdateTodoResponse = Todo;
-type DeleteTodoResponse = Todo;
+type GetTodoResponse = TodoItem[];
+type CreateTodoResponse = TodoItem;
+type UpdateTodoResponse = TodoItem;
+type DeleteTodoResponse = TodoItem;
 
 export const todoDataSource = {
   getTodos: async (): Promise<GetTodoResponse> => {
