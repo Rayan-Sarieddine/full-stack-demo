@@ -105,6 +105,7 @@ function TodoComponent({
   ) => {
     setNewPriorityLevel(event.target.value as PriorityLevel);
   };
+
   return (
     <div className="todo">
       <div className="todo-top">

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import "./style.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import CheckMark from "../../components/common/CheckMark";
 import { AxiosError } from "axios";
+
+import "./style.css";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState<string>("");
@@ -15,7 +17,6 @@ const ResetPassword = () => {
   const [passwordError, setPasswordError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(true);
-
   const [success, setSuccess] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -55,12 +56,14 @@ const ResetPassword = () => {
     if (!password || !confirmPassword) {
       return;
     }
+
     const queryParams = new URLSearchParams(location.search);
     const token = queryParams.get("token");
     let data: { newPassword: string; token: string | null } = {
       newPassword: password,
       token,
     };
+
     try {
       await authDataSource.resetPassword(data);
       setSuccess(true);
@@ -75,10 +78,11 @@ const ResetPassword = () => {
       }
     }
   };
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const handleGoogleLogin = async () => {};
+
   return (
     <section className="reset">
       {!success ? (

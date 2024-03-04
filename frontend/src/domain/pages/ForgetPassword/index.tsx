@@ -19,6 +19,7 @@ const ForgetPassword = () => {
       navigate("/");
     }
   }, []);
+
   const navigate: NavigateFunction = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -27,6 +28,7 @@ const ForgetPassword = () => {
       setError("All Fields are Required");
       return;
     }
+
     const emailRegExpression = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegExpression.test(email)) {
       setError("Please Enter a Valid Email");

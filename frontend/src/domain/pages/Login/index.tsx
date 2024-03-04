@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
+
 import { ReactComponent as EmailIcon } from "../../../assets/icons/envelope.svg";
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
+import googleIcon from "../../../assets/logos/google-icon.png";
+
 import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
 import { useDispatch } from "react-redux";
-import googleIcon from "../../../assets/logos/google-icon.png";
-
-import "./style.css";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import { loggedIn } from "../../../core/dataSource/localDataSource/User";
 import { Dispatch, UnknownAction } from "redux";
 import { AxiosError } from "axios";
 import { gapi } from "gapi-script";
+
+import "./style.css";
+
 const GOOGLE_CLIENT_ID =
   "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
+
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -45,12 +49,14 @@ const Login = () => {
       setError("All Fields are Required");
       return;
     }
+
     const emailRegExpression: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegExpression.test(email)) {
       setError("Please Enter a Valid Email");
       setTimeout(() => setError(""), 4000);
       return;
     }
+
     const passwordRegExpression =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegExpression.test(password)) {
@@ -58,6 +64,7 @@ const Login = () => {
       setTimeout(() => setError(""), 4000);
       return;
     }
+
     let data: { email: string; password: string } = { email, password };
     try {
       const response = await authDataSource.login(data);
@@ -82,6 +89,7 @@ const Login = () => {
       }
     }
   };
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -112,6 +120,7 @@ const Login = () => {
       console.error("Error during Google Sign-In:", error);
     }
   };
+
   return (
     <section className="login">
       <div className="login-form-box">

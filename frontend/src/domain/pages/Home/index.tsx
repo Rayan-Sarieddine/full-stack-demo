@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
 import Nav from "../../components/common/Nav";
 import Footer from "../../components/common/Footer";
-import Stacks from "../../components/pageComponents/Stacks";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   TodoItem,
   todoDataSource,
@@ -12,16 +10,21 @@ import { saveTodos } from "../../../core/dataSource/localDataSource/Todo";
 import TodoComponent from "../../components/pageComponents/Todo";
 import { useNavigate } from "react-router-dom";
 
+import "./style.css";
+
 function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [groupedTodos, setGroupedTodos] = useState({});
   const [refreshTrigger, setRefreshTrigger] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedOption, setSelectedOption] = useState("All");
+
   const triggerRefresh = () => {
     setRefreshTrigger((prev) => !prev);
   };
+
   const formatDate = (date: string) => {
     const today = new Date().toISOString().split("T")[0];
     const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
+
 import { ReactComponent as EmailIcon } from "../../../assets/icons/envelope.svg";
 import { ReactComponent as EyeIcon } from "../../../assets/icons/eye.svg";
 import { ReactComponent as EyeSlashIcon } from "../../../assets/icons/eye-slash.svg";
 import { ReactComponent as NameIcon } from "../../../assets/icons/name.svg";
+
 import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { local } from "../../../core/helpers/localStorage";
-
-import "./style.css";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import CheckMark from "../../components/common/CheckMark";
 import { AxiosError } from "axios";
+
+import "./style.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState<string>("");
@@ -22,7 +24,6 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(true);
-
   const [success, setSuccess] = useState<boolean>(false);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const SignUp = () => {
       navigate("/");
     }
   }, []);
+
   const navigate: NavigateFunction = useNavigate();
 
   const validateFullName = (value: string) => {
@@ -92,9 +94,11 @@ const SignUp = () => {
       }
     }
   };
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <section className="signup">
       {!success ? (
