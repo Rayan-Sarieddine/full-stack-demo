@@ -17,6 +17,7 @@ export type Todo = {
   completed: boolean;
   pinned: boolean;
   id: number;
+  onOperationSuccess?: () => void;
 };
 
 function TodoComponent({
@@ -27,6 +28,7 @@ function TodoComponent({
   completed,
   pinned,
   id,
+  onOperationSuccess,
 }: Todo) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [newTitle, setNewTitle] = useState<string>(title);
@@ -62,6 +64,9 @@ function TodoComponent({
     };
     try {
       await todoDataSource.update(data, id);
+      if (typeof onOperationSuccess === "function") {
+        onOperationSuccess();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -70,6 +75,9 @@ function TodoComponent({
   const handleDelete = async () => {
     try {
       await todoDataSource.delete(id);
+      if (typeof onOperationSuccess === "function") {
+        onOperationSuccess();
+      }
     } catch (error) {
       console.log(error);
     }

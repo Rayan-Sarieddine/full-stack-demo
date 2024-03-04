@@ -14,7 +14,10 @@ import TodoComponent from "../../components/pageComponents/Todo";
 function Home() {
   const dispatch = useDispatch();
   const [groupedTodos, setGroupedTodos] = useState({});
-
+  const [refreshTrigger, setRefreshTrigger] = useState(false);
+  const triggerRefresh = () => {
+    setRefreshTrigger((prev) => !prev);
+  };
   const formatDate = (date: string) => {
     const today = new Date().toISOString().split("T")[0];
     const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
@@ -41,7 +44,7 @@ function Home() {
   };
   useEffect(() => {
     getTodos();
-  }, []);
+  }, [refreshTrigger]);
   return (
     <div className="home">
       <Nav />
@@ -59,6 +62,7 @@ function Home() {
                 completed={todo.completed}
                 date={new Date(todo.date)}
                 priorityLevel={todo.priorityLevel}
+                onOperationSuccess={triggerRefresh}
               />
             ))}
           </div>

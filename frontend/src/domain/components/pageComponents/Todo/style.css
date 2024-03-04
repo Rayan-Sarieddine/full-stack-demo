@@ -62,6 +62,9 @@
   background-color: transparent;
   border: none;
   color: black;
+  word-wrap: break-word;
+  max-width: 100%;
+  text-align: left;
 }
 .text-display-title {
   font-size: 2rem;
