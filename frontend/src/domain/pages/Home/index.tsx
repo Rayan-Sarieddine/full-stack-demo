@@ -17,6 +17,8 @@ function Home() {
   const navigate = useNavigate();
   const [groupedTodos, setGroupedTodos] = useState({});
   const [refreshTrigger, setRefreshTrigger] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedOption, setSelectedOption] = useState("All");
   const triggerRefresh = () => {
     setRefreshTrigger((prev) => !prev);
   };
@@ -32,33 +34,47 @@ function Home() {
   const getTodos = async () => {
     const response = await todoDataSource.getTodos();
     dispatch(saveTodos(response));
-    const groupedByDate: any = {};
-    response.forEach((todo: TodoItem) => {
-      const dateKey = todo.date.split("T")[0];
-      if (!groupedByDate[dateKey]) {
-        groupedByDate[dateKey] = [todo];
-      } else {
-        groupedByDate[dateKey].push(todo);
+
+    const filteredTodos = response.filter((todo: TodoItem) => {
+      const matchesSearchTerm = todo.title
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      let matchesRadioSelection = true;
+      switch (selectedOption) {
+        case "CompletedTodos":
+          matchesRadioSelection = todo.completed;
+          break;
+        case "UnCompletedTodos":
+          matchesRadioSelection = !todo.completed;
+          break;
+        case "PinnedTodos":
+          matchesRadioSelection = todo.pinned;
+          break;
+        default:
+          break;
       }
+      return matchesSearchTerm && matchesRadioSelection;
     });
 
-    const priorityMapping = {
-      TOP: 1,
-      MEDIUM: 2,
-      LOW: 3,
-    };
+    const groupedByDate: { [key: string]: TodoItem[] } = {};
+    filteredTodos.forEach((todo: TodoItem) => {
+      const dateKey = todo.date.split("T")[0];
+      groupedByDate[dateKey] = groupedByDate[dateKey] || [];
+      groupedByDate[dateKey].push(todo);
+    });
+
+    const priorityMapping = { TOP: 1, MEDIUM: 2, LOW: 3 };
 
     Object.keys(groupedByDate).forEach((date) => {
-      groupedByDate[date].sort((a: TodoItem, b: TodoItem) => {
-        return (
+      groupedByDate[date].sort(
+        (a: TodoItem, b: TodoItem) =>
           priorityMapping[a.priorityLevel] - priorityMapping[b.priorityLevel]
-        );
-      });
+      );
     });
 
     const sortedGroupedTodos = Object.keys(groupedByDate)
       .sort()
-      .reduce((acc: any, date) => {
+      .reduce((acc: { [key: string]: TodoItem[] }, date) => {
         acc[date] = groupedByDate[date];
         return acc;
       }, {});
@@ -68,14 +84,78 @@ function Home() {
 
   useEffect(() => {
     getTodos();
-  }, [refreshTrigger]);
+  }, [refreshTrigger, searchTerm, selectedOption]);
+  //filter functionalities
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    triggerRefresh();
+  };
+
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <div className="home">
       <Nav />
       <div className="todo-section">
         <div className="todos-filters">
-          <div className="todo-filter-search"></div>
-          <div className="todo-filter-select"></div>
+          <div className="todo-filter-search">
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                placeholder="Filter Todos by Title"
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button type="submit" className="btn">
+                Filter
+              </button>
+            </form>
+          </div>
+          <div className="todo-filter-select">
+            <form>
+              <label>
+                <input
+                  type="radio"
+                  value="All"
+                  checked={selectedOption === "All"}
+                  onChange={handleRadioChange}
+                />
+                All
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="CompletedTodos"
+                  checked={selectedOption === "CompletedTodos"}
+                  onChange={handleRadioChange}
+                />
+                Completed Todos
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="UnCompletedTodos"
+                  checked={selectedOption === "UnCompletedTodos"}
+                  onChange={handleRadioChange}
+                />
+                UnCompleted Todos
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="PinnedTodos"
+                  checked={selectedOption === "PinnedTodos"}
+                  onChange={handleRadioChange}
+                />
+                Pinned Todos
+              </label>
+              <button type="submit" className="btn">
+                Show
+              </button>
+            </form>
+          </div>
         </div>
         <div className="todos">
           <button
