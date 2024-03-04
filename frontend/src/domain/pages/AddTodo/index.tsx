@@ -10,6 +10,7 @@ type PriorityLevel = "TOP" | "MEDIUM" | "LOW";
 
 function AddTodo() {
   const navigate = useNavigate();
+
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [date, setDate] = useState<string>("");
@@ -20,6 +21,7 @@ function AddTodo() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     let data = {
       title,
       description,
@@ -28,6 +30,7 @@ function AddTodo() {
       completed,
       pinned,
     };
+
     try {
       await todoDataSource.create(data);
       setSuccess(true);
