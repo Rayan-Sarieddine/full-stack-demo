@@ -10,9 +10,11 @@ import {
 } from "../../../core/dataSource/remoteDataSource/todo";
 import { saveTodos } from "../../../core/dataSource/localDataSource/Todo";
 import TodoComponent from "../../components/pageComponents/Todo";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [groupedTodos, setGroupedTodos] = useState({});
   const [refreshTrigger, setRefreshTrigger] = useState(false);
   const triggerRefresh = () => {
@@ -76,6 +78,14 @@ function Home() {
           <div className="todo-filter-select"></div>
         </div>
         <div className="todos">
+          <button
+            className="btn todos-btn"
+            onClick={() => {
+              navigate("/add-todo");
+            }}
+          >
+            Add Todo
+          </button>
           {Object.entries(groupedTodos).map(([date, todos]: any) => (
             <div className="todo-item" key={date}>
               <h2>{formatDate(date)}</h2>
