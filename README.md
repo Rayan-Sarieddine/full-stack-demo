@@ -26,7 +26,15 @@
 - Testing: Comprehensive API testing implemented with Jest for assured reliability.
 - TypeScript: Adoption of TypeScript for robust, type-safe coding, minimizing errors and enhancing code quality.
 - Database Design: Advanced database architecture crafted with Prisma, ensuring scalability and efficient data management.
-- Todo Functionalities:
+- User Features:
+
+  - User can sign-up using form or google
+  - User confirmation email sent upon sign-up (with form)
+  - User password reset email sent upon request
+  - User can reset password via password reset link
+  - For security: password hashing, email confirmation, reset password confirmation, brute force attacks protection (rate limiting), jwt authentication
+
+- Todo Features:
 
   - User can add, edit and delete Todos (only the ones that belong to user)
   - User can filter Todos by complete, uncomplete and pinned status
