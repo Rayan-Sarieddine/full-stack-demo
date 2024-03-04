@@ -5,6 +5,7 @@ import Nav from "../../components/common/Nav";
 import { todoDataSource } from "../../../core/dataSource/remoteDataSource/todo";
 import CheckMark from "../../components/common/CheckMark";
 import { useNavigate } from "react-router-dom";
+import { local } from "../../../core/helpers/localStorage";
 
 type PriorityLevel = "TOP" | "MEDIUM" | "LOW";
 
@@ -21,7 +22,11 @@ function AddTodo() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    const token = local("token");
+    if (!token || token === null || token === "") {
+      navigate("/login");
+      return;
+    }
     let data = {
       title,
       description,

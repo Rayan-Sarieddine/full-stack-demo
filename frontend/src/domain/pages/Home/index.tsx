@@ -11,6 +11,7 @@ import TodoComponent from "../../components/pageComponents/Todo";
 import { useNavigate } from "react-router-dom";
 
 import "./style.css";
+import { local } from "../../../core/helpers/localStorage";
 
 function Home() {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ function Home() {
   };
 
   const getTodos = async () => {
+    const token = local("token");
+    if (!token || token === null || token === "") return;
     const response = await todoDataSource.getTodos();
     dispatch(saveTodos(response));
 
