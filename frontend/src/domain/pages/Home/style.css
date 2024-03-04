@@ -12,11 +12,90 @@
 }
 .todos {
   overflow-y: auto;
+  flex-grow: 1;
   max-height: 70vh;
   margin: 20px 0;
 }
 .todos-btn {
   position: absolute;
-  top: 15%;
+  top: 20%;
   right: 15%;
+}
+.todo-section {
+  display: flex;
+  padding: 20px;
+}
+.todos-filters {
+  flex-basis: 25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 5rem;
+  margin-left: 10rem;
+}
+.todo-filter-select {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.todo-filter-select_item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.todo-filter-search input {
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 4px #a7a9af, inset -2px -2px 4px #ffffff;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+  .todo-section {
+    flex-direction: column;
+  }
+  .todos-btn {
+    top: 70%;
+    right: 15%;
+  }
+  .todos-filters {
+    flex-basis: 25rem;
+    gap: 5rem;
+    margin-left: 0rem;
+  }
+}
+@media (max-width: 666px) {
+  .todos-btn {
+    top: 60%;
+    right: 10%;
+  }
+  .todos-filters {
+    flex-basis: 25rem;
+    gap: 5rem;
+    margin-left: 0rem;
+  }
+}
+@media (max-width: 400px) {
+  .todos {
+    margin-top: 9rem;
+  }
+  .todos-btn {
+    top: 60%;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+@media (max-width: 200px) {
+  .todos {
+    margin-top: 9rem;
+  }
+  .todos-btn {
+    top: 64%;
+    padding: 1rem;
+  }
 }

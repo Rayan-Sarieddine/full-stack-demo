@@ -47,7 +47,6 @@
   border: none;
   outline: none;
   color: white;
-  font-size: 600;
 }
 .todo-top_save {
   background-color: var(--green);
@@ -125,4 +124,42 @@
   border: none;
   cursor: pointer;
   outline: none;
+}
+@media (max-width: 1230px) {
+  .row1,
+  .row2 {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .text-display-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .text-display-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .todo-top button {
+    padding: 0.2rem;
+  }
+}
+@media (max-width: 500px) {
+  .todo {
+    margin: 2rem auto;
+    width: 80%;
+  }
+}
+@media (max-width: 300px) {
+  .todo {
+    margin: 2rem auto;
+    width: 95%;
+  }
+}
+@media (max-width: 230px) {
+  .todo {
+    margin: 0;
+    width: 100%;
+  }
 }

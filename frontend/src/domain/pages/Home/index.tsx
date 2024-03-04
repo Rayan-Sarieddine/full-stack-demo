@@ -85,11 +85,6 @@ function Home() {
   useEffect(() => {
     getTodos();
   }, [refreshTrigger, searchTerm, selectedOption]);
-  //filter functionalities
-  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    triggerRefresh();
-  };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -101,60 +96,50 @@ function Home() {
       <div className="todo-section">
         <div className="todos-filters">
           <div className="todo-filter-search">
-            <form onSubmit={handleSearch}>
-              <input
-                type="text"
-                placeholder="Filter Todos by Title"
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button type="submit" className="btn">
-                Filter
-              </button>
-            </form>
+            <input
+              type="text"
+              placeholder="Filter Todos by Title"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
           <div className="todo-filter-select">
-            <form>
-              <label>
-                <input
-                  type="radio"
-                  value="All"
-                  checked={selectedOption === "All"}
-                  onChange={handleRadioChange}
-                />
-                All
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value="CompletedTodos"
-                  checked={selectedOption === "CompletedTodos"}
-                  onChange={handleRadioChange}
-                />
-                Completed Todos
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value="UnCompletedTodos"
-                  checked={selectedOption === "UnCompletedTodos"}
-                  onChange={handleRadioChange}
-                />
-                UnCompleted Todos
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  value="PinnedTodos"
-                  checked={selectedOption === "PinnedTodos"}
-                  onChange={handleRadioChange}
-                />
-                Pinned Todos
-              </label>
-              <button type="submit" className="btn">
-                Show
-              </button>
-            </form>
+            <h2>Filter Todos</h2>
+            <div className="todo-filter-select_item">
+              <input
+                type="radio"
+                value="All"
+                checked={selectedOption === "All"}
+                onChange={handleRadioChange}
+              />
+              <label>All</label>
+            </div>
+            <div className="todo-filter-select_item">
+              <input
+                type="radio"
+                value="CompletedTodos"
+                checked={selectedOption === "CompletedTodos"}
+                onChange={handleRadioChange}
+              />
+              <label>Completed Todos</label>
+            </div>
+            <div className="todo-filter-select_item">
+              <input
+                type="radio"
+                value="UnCompletedTodos"
+                checked={selectedOption === "UnCompletedTodos"}
+                onChange={handleRadioChange}
+              />
+              <label>UnCompleted Todos</label>
+            </div>
+            <div className="todo-filter-select_item">
+              <input
+                type="radio"
+                value="PinnedTodos"
+                checked={selectedOption === "PinnedTodos"}
+                onChange={handleRadioChange}
+              />
+              <label>Pinned Todos</label>
+            </div>
           </div>
         </div>
         <div className="todos">
