@@ -23,7 +23,7 @@
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 .add-todo textarea {
   height: 10rem;
@@ -40,4 +40,29 @@
   gap: 1rem;
   font-size: 1.5rem;
   margin-top: 2rem;
+}
+@media (max-width: 8450px) {
+  .add-todo_checkboxes {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 470px) {
+  .add-todo_checkboxes {
+    gap: 4rem;
+  }
+  .add-todo_checkbox {
+    gap: 0.7rem;
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 400px) {
+  .add-todo_checkboxes {
+    flex-direction: column;
+    gap: 0rem;
+    align-items: flex-start;
+  }
+  .add-todo_checkbox {
+    gap: 0.7rem;
+    font-size: 1.1rem;
+  }
 }
