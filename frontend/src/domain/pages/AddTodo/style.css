@@ -2,4 +2,42 @@
   padding: 2rem;
   background-color: #e0e5ec;
   border-radius: 10px;
+  max-width: 60%;
+  margin: 5rem auto;
+  box-shadow: 8px 8px 16px #a7a9af, -8px -8px 16px #ffffff;
+}
+.add-todo input[type="text"],
+.add-todo input[type="date"],
+.add-todo textarea,
+.add-todo select {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 4px #a7a9af, inset -2px -2px 4px #ffffff;
+  resize: none;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.add-todo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.add-todo textarea {
+  height: 10rem;
+}
+.add-todo_checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+}
+.add-todo_checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
 }

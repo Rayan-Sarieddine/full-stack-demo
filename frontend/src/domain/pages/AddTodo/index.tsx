@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "./style.css";
+import Footer from "../../components/common/Footer";
+import Nav from "../../components/common/Nav";
 
-// Assuming PriorityLevel is defined elsewhere and imported
-// If not, define it as follows for the purpose of this example
 type PriorityLevel = "TOP" | "MEDIUM" | "LOW";
 
 function AddTodo() {
@@ -14,13 +15,11 @@ function AddTodo() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Implement the logic to add the todo here
-    console.log({ title, description, date, priorityLevel, completed, pinned });
-    // Reset form fields if necessary
   };
 
   return (
     <div className="add-todo">
+      <Nav />
       <form className="add-todo_main" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>
@@ -62,28 +61,29 @@ function AddTodo() {
             <option value="LOW">Low</option>
           </select>
         </div>
-        <div>
-          <label>
+        <div className="add-todo_checkboxes">
+          <div className="add-todo_checkbox">
             <input
               type="checkbox"
               checked={completed}
               onChange={(e) => setCompleted(e.target.checked)}
             />
-            Completed
-          </label>
-        </div>
-        <div>
-          <label>
+            <label className="checkbox-label">Completed</label>
+          </div>
+          <div className="add-todo_checkbox">
             <input
               type="checkbox"
               checked={pinned}
               onChange={(e) => setPinned(e.target.checked)}
             />
-            Pinned
-          </label>
+            <label className="checkbox-label">Pinned</label>
+          </div>
         </div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" className="btn">
+          Add Todo
+        </button>
       </form>
+      <Footer />
     </div>
   );
 }
