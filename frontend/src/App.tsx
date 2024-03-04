@@ -9,6 +9,7 @@ import ResetPassword from "./domain/pages/ResetPassword";
 import EmailVerified from "./domain/pages/EmailVerified";
 import { Provider } from "react-redux";
 import { store } from "./core/dataSource/localDataSource/store";
+import AddTodo from "./domain/pages/AddTodo";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/email-verified" element={<EmailVerified />} />
+          <Route path="/add-todo" element={<AddTodo />} />
         </Routes>
       </Provider>
     </div>
