@@ -62,6 +62,26 @@
 | -------------------------------------------------------
 | ![Rate Limiting Example](./readme/gifs/rate-limiting.gif)
 
+| Add Todo
+| --------------------------------------------------------
+| ![Add Todo](./readme/gifs/add_todo.gif)
+
+| Edit/Delete Todo
+| -----------------------------------------------------------
+| ![Edit/Delete Todo](./readme/gifs/edit_delete.gif)
+
+| Filter Todos
+| ------------------------------------------------
+| ![Filter Todos](./readme/gifs/edit_delete.gif)
+
+| Search Todos
+| ------------------------------------------------------------
+| ![Search Todos](./readme/gifs/search.gif)
+
+| Responsive Design Example
+| -------------------------------------------------------
+| ![Responsive Design Example](./readme/gifs/responsive_design.gif)
+
 ### Pages:
 
 | Login Page                                   |
