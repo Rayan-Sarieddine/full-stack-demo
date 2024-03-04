@@ -1,0 +1,19 @@
+.button {
+  padding: 1rem 2rem;
+  color: var(--white);
+  background-color: var(--primary);
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--primary-shade);
+  border: 1px solid #333;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
