@@ -26,6 +26,14 @@
 - Testing: Comprehensive API testing implemented with Jest for assured reliability.
 - TypeScript: Adoption of TypeScript for robust, type-safe coding, minimizing errors and enhancing code quality.
 - Database Design: Advanced database architecture crafted with Prisma, ensuring scalability and efficient data management.
+- Todo Functionalities:
+
+  - User can add, edit and delete Todos (only the ones that belong to user)
+  - User can filter Todos by complete, uncomplete and pinned status
+  - Todos with the same date are grouped together and shown in an increasing order (date-wise)
+  - Todos within the same date group are organized by priority (most important first)
+  - User can search for todos through title-keyword search
+  - User can pin and complete todos
 
   <br><br>
 
