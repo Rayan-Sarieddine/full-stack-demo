@@ -230,7 +230,7 @@ Follow these steps to install and set up this full stack app on your local envir
 1- Clone the repo:
 
 ```sh
-git clone https://github.com/Rayan-Sarieddine/full-stack-demo
+git clone https://github.com/Rayan-Sarieddine/todo-app
 ```
 
 2- Run the server:
