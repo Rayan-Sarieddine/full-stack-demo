@@ -5,8 +5,6 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> This Full Stack app was built using Nest.js, PostgreSQL, Prisma, React and Typescript.
-
 ### Features:
 
 - User Registration: Intuitive registration form for easy sign-up.
@@ -51,6 +49,83 @@
 
   <img src="./readme/images/api_documentation.png"/>
 
+<br><br>
+
+<!-- Figma Designs -->
+<img src="./readme/title3.svg"/>
+
+> The design process for this web app began with meticulous planning. This foundational step ensured a cohesive and well-organized structure,which was done through Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.
+
+### Wireframes
+
+| Login Page
+| --------------------------------------------------------
+| ![Login Page](./readme/wireframes/login.png)
+
+<table>
+  <tr>
+    <th>Signup Page</th>
+    <th>Forgot Password Page</th>
+    <th>Reset Password Page</th>
+
+  </tr>
+  <tr>
+    <td><img src="./readme/wireframes/signup.png" alt="signup_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/forget-password.png" alt="forgot_password_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/reset-password.png" alt="reset_password_page" width="300" height="600"/></td>
+
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Home Page</th>
+    <th>Home-Not Logged In Page</th>
+    <th>Add-Todo Page</th>
+
+  </tr>
+  <tr>
+    <td><img src="./readme/wireframes/Home.png" alt="Home_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/Home-not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/Add-Todo.png" alt="Add-Todo_page" width="300" height="600"/></td>
+
+  </tr>
+</table>
+<br><br>
+
+### Mockups
+
+| Login Page
+| --------------------------------------------------------
+| ![Login Page](./readme/mockups/login.png)
+
+<table>
+  <tr>
+    <th>Signup Page</th>
+    <th>Forgot Password Page</th>
+    <th>Reset Password Page</th>
+
+  </tr>
+  <tr>
+    <td><img src="./readme/mockups/signup.png" alt="signup_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/forget-password.png" alt="forgot_password_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/reset-password.png" alt="reset_password_page" width="300" height="600"/></td>
+
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Home Page</th>
+    <th>Home-Not Logged In Page</th>
+    <th>Add-Todo Page</th>
+
+  </tr>
+  <tr>
+    <td><img src="./readme/mockups/Home.png" alt="Home_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/home_not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/Add-Todo.png" alt="Add-Todo_page" width="300" height="600"/></td>
+
+  </tr>
+</table>
 <br><br>
 
 <!-- Implementation -->
