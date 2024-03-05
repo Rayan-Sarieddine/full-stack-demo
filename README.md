@@ -56,6 +56,8 @@
 
 > The design process for this web app began with meticulous planning. This foundational step ensured a cohesive and well-organized structure,which was done through Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.
 
+- For the full Figma Design Page: [figma](https://www.figma.com/file/Xro58VJPn7fgCsy8AM4sIU/Paws?type=design&node-id=415%3A451&mode=design&t=NO8l9gwhjJmY5QZ1-1)
+
 ### Wireframes
 
 | Login Page
@@ -83,9 +85,9 @@
 
   </tr>
   <tr>
-    <td><img src="./readme/wireframes/Home.png" alt="Home_page" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/Home-not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/Add-Todo.png" alt="Add-Todo_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/Home.png" alt="Home_page" width="300" height="200"/></td>
+    <td><img src="./readme/wireframes/Home-not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="200"/></td>
+    <td><img src="./readme/wireframes/Add-Todo.png" alt="Add-Todo_page" width="300" height="200"/></td>
 
   </tr>
 </table>
@@ -105,9 +107,9 @@
 
   </tr>
   <tr>
-    <td><img src="./readme/mockups/signup.png" alt="signup_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/forget-password.png" alt="forgot_password_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/reset-password.png" alt="reset_password_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/signup.png" alt="signup_page" width="300" height="200"/></td>
+    <td><img src="./readme/mockups/forget-password.png" alt="forgot_password_page" width="300" height="200"/></td>
+    <td><img src="./readme/mockups/reset-password.png" alt="reset_password_page" width="300" height="200"/></td>
 
   </tr>
 </table>
@@ -119,9 +121,9 @@
 
   </tr>
   <tr>
-    <td><img src="./readme/mockups/Home.png" alt="Home_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/home_not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/Add-Todo.png" alt="Add-Todo_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/Home.png" alt="Home_page" width="300" height="200"/></td>
+    <td><img src="./readme/mockups/home_not_logged_in.png" alt="Home-Not-Logged-In_page" width="300" height="200"/></td>
+    <td><img src="./readme/mockups/Add-Todo.png" alt="Add-Todo_page" width="300" height="200"/></td>
 
   </tr>
 </table>
