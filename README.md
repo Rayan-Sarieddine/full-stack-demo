@@ -164,7 +164,7 @@
 
 | Filter Todos
 | ------------------------------------------------
-| ![Filter Todos](./readme/gifs/edit_delete.gif)
+| ![Filter Todos](./readme/gifs/filter_todos.gif)
 
 | Search Todos
 | ------------------------------------------------------------
