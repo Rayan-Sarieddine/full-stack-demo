@@ -176,17 +176,17 @@
 
 ### Pages:
 
-| Login Page                                   |
-| -------------------------------------------- |
-| ![Login Page](./readme/pages/login_page.png) |
-
-| Sign-Up Page                                     | Home Page                                  |
-| ------------------------------------------------ | ------------------------------------------ |
-| ![Sign-Up Page](./readme/pages/sign-up_page.png) | ![Home Page](./readme/pages/home_page.png) |
+| Login Page                                   | Sign-Up Page                                     |
+| -------------------------------------------- | ------------------------------------------------ |
+| ![Login Page](./readme/pages/login_page.png) | ![Sign-Up Page](./readme/pages/sign-up_page.png) |
 
 | Forget-Password Page                                             | Reset-Password Page                                            |
 | ---------------------------------------------------------------- | -------------------------------------------------------------- |
 | ![Forget-Password Page](./readme/pages/forget-password_page.png) | ![Reset-Password Page](./readme/pages/reset-password_page.png) |
+
+| Home Page                                  | Add Todo Page                                 |
+| ------------------------------------------ | --------------------------------------------- |
+| ![Home Page](./readme/pages/home_page.png) | ![Add Todo Page](./readme/pages/add-todo.png) |
 
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
