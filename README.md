@@ -70,9 +70,9 @@
 
   </tr>
   <tr>
-    <td><img src="./readme/wireframes/signup.png" alt="signup_page" width="1440" height="1024"/></td>
-    <td><img src="./readme/wireframes/forget-password.png" alt="forgot_password_page" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/reset-password.png" alt="reset_password_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/signup.png" alt="signup_page" width="300" height="200"/></td>
+    <td><img src="./readme/wireframes/forget-password.png" alt="forgot_password_page" width="300" height="200"/></td>
+    <td><img src="./readme/wireframes/reset-password.png" alt="reset_password_page" width="300" height="200"/></td>
 
 </table>
 <table>
